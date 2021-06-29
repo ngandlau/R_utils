@@ -1,9 +1,7 @@
 R\_utils
 ================
-Nils Gandlau
-29 6 2021
 
-# Description
+## Description
 
 A library of R utility functions that I find useful for my work as a PhD
 student on…
