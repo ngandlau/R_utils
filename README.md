@@ -3,8 +3,7 @@ R\_utils
 
 ## Description
 
-A library of R utility functions that I find useful for my work as a PhD
-student on…
+A library of R utility functions that I find useful for my work on:
 
 -   customer cohort analysis
 -   age-period-cohort analysis
@@ -16,7 +15,7 @@ with both Excel and R interchangeably.
 
 ## Generating Cohort Matrices
 
-The library includes many function for creating cohort matrices from
+The library includes many functions for creating cohort matrices from
 scratch.
 
 ``` r
@@ -76,7 +75,7 @@ GenMatrixFromRow(row = row)
     ## [5,]   NA   NA   NA   NA 0.90
 
 ``` r
-# From period by period-by-period retention rates to survival rates
+# From period-by-period customer retention rates to survival rates
 retentionRates <- c(1, 0.9, 0.8, 0.7, 0.6)
 retentionMatrix <- GenMatrixFromRow(row = retentionRates)
 survivalRates <- TransformRetentionRates(
