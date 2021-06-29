@@ -85,17 +85,6 @@ GenMatrixFromRow <- function(row){
   return(X)
 }
 
-# Use this if you 
-# a) want to generate a retention matrix, and
-# b) assume that customers cannot churn in their acquisition period, and
-# c) assume that each cohort follows the same retention pattern
-GenRetentionMatrixFromRow <- function(retentionRates){
-  X <- GenMatrixFromRow(row = retentionRates, view = "cohort-period")
-  X <- cbind(NA, X)
-  X <- rbind(X, NA)
-  X
-}
-
 # Generates a customer matrix given you have 
 #   1) number of acquired customers
 #   2) survival matrix
@@ -177,8 +166,8 @@ TransformView <- function(X, from, to){
 
 # Transforms period-by-period retention rates to survival probabilities
 # only works for cohort-period array
-TransformRetentionRates <- function(X, from = "period-by-period", to = "survival-prob"){
-  if (from == "period-by-period" & to == "survival-prob"){
+TransformRetentionRates <- function(X, from = "period-by-period", to = "survival"){
+  if (from == "period-by-period" & to == "survival"){
     dim <- ncol(X)
     Xout <- sapply(1:nrow(X), function(rowIdx){
       row <- X[rowIdx, rowIdx:dim]
